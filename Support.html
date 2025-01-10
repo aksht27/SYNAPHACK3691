@@ -1,0 +1,104 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+    KrishiSetu - Donate
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+  <style>
+   .marquee {
+     overflow-x: hidden;
+     white-space: nowrap;
+     box-sizing: border-box;
+     animation: marquee 15s linear infinite;
+   }
+   @keyframes marquee {
+     0% { transform: translate(100%, 0); }
+     100% { transform: translate(-100%, 0); }
+   }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white font-sans" style="font-family: 'SUSE', sans-serif;">
+  <div class="flex flex-col min-h-screen items-center justify-center">
+   <header class="w-full bg-gray-800 p-4 flex justify-between items-center">
+    <div class="flex items-center space-x-4">
+     <h1 class="text-3xl font-bold">
+      KrishiSetu
+     </h1>
+    </div>
+   </header>
+   <div class="w-full bg-gray-800 p-4 text-center">
+    <div class="marquee">
+     <span class="mx-4">PayPal</span>
+     <span class="mx-4">Paytm</span>
+     <span class="mx-4">PhonePe</span>
+     <span class="mx-4">Google Pay</span>
+     <span class="mx-4">QR Code</span>
+     <span class="mx-4">Credit Card</span>
+     <span class="mx-4">Bank Transfer</span>
+     <span class="mx-4">Crypto</span>
+    </div>
+   </div>
+   <main class="flex-1 w-full flex flex-col items-center p-8">
+    <h2 class="text-4xl font-bold mb-4">
+     Support Our Mission
+    </h2>
+    <p class="text-xl mb-8 text-center">
+     "Your generosity helps us make every drop count."
+    </p>
+    <div class="bg-gray-800 p-6 rounded-lg w-full max-w-md text-center shadow-lg">
+     <h3 class="text-2xl font-bold mb-4">
+      Donate to JalDhan
+     </h3>
+     <p class="mb-4">
+      Your donation will help us continue our work in water conservation and education.
+     </p>
+     <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input name="hosted_button_id" type="hidden" value="YOUR_PAYPAL_BUTTON_ID"/>
+      <button class="bg-blue-600 px-4 py-2 rounded-lg text-white font-bold w-full hover:bg-blue-700 transition duration-300" type="submit">
+       Donate with PayPal
+      </button>
+     </form>
+     <div class="mt-4">
+      <a class="bg-blue-500 px-4 py-2 rounded-lg text-white font-bold w-full block text-center hover:bg-blue-600 transition duration-300" href="https://paytm.com" target="_blank">
+       Donate with Paytm
+      </a>
+     </div>
+     <div class="mt-4">
+      <a class="bg-purple-500 px-4 py-2 rounded-lg text-white font-bold w-full block text-center hover:bg-purple-600 transition duration-300" href="https://www.phonepe.com" target="_blank">
+       Donate with PhonePe
+      </a>
+     </div>
+     <div class="mt-4">
+      <a class="bg-green-500 px-4 py-2 rounded-lg text-white font-bold w-full block text-center hover:bg-green-600 transition duration-300" href="https://pay.google.com" target="_blank">
+       Donate with Google Pay
+      </a>
+     </div>
+     <div class="mt-4">
+      <h3 class="text-xl font-bold mb-2">
+       Donate with QR Code
+      </h3>
+      <img alt="Fake QR Code" class="w-32 h-32 mx-auto" height="128" src="WhatsApp Image 2024-09-19 at 22.09.43_d5b944ed.jpg" width="128"/>
+      <p class="mt-2">
+       Scan the QR code with your payment app to donate.
+      </p>
+     </div>
+     <div class="mt-4">
+      <a class="bg-red-500 px-4 py-2 rounded-lg text-white font-bold w-full block text-center hover:bg-red-600 transition duration-300" href="https://www.yourbank.com" target="_blank">
+       Donate with Bank Transfer
+      </a>
+     </div>
+    </div>
+   </main>
+   <footer class="w-full bg-gray-800 p-4 text-center">
+    <p>
+     © 2023 JalDhan. All rights reserved.
+    </p>
+   </footer>
+  </div>
+ </body>
+</html>
