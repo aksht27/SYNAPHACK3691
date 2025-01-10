@@ -1,0 +1,305 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96" id="card1">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">1. Which crop has the highest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question1" value="0" class="mr-2">
+                    <label>Rice</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question1" value="0" class="mr-2">
+                    <label>Wheat</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question1" value="0" class="mr-2">
+                    <label>Corn</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question1" value="10" class="mr-2">
+                    <label>Almonds</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card2')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card2">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">2. How much water is required to produce 1 kg of beef?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question2" value="10" class="mr-2">
+                    <label>15,000 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question2" value="0" class="mr-2">
+                    <label>10,000 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question2" value="0" class="mr-2">
+                    <label>5,000 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question2" value="0" class="mr-2">
+                    <label>2,000 liters</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card3')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card3">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">3. Which agricultural product has the lowest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question3" value="0" class="mr-2">
+                    <label>Potatoes</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question3" value="0" class="mr-2">
+                    <label>Tomatoes</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question3" value="10" class="mr-2">
+                    <label>Lettuce</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question3" value="0" class="mr-2">
+                    <label>Carrots</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card4')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card4">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">4. Which fruit has the highest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question4" value="0" class="mr-2">
+                    <label>Banana</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question4" value="0" class="mr-2">
+                    <label>Apple</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question4" value="0" class="mr-2">
+                    <label>Orange</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question4" value="10" class="mr-2">
+                    <label>Avocado</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card5')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card5">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">5. How much water is required to produce 1 kg of rice?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question5" value="0" class="mr-2">
+                    <label>2,500 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question5" value="0" class="mr-2">
+                    <label>3,500 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question5" value="10" class="mr-2">
+                    <label>4,500 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question5" value="0" class="mr-2">
+                    <label>5,500 liters</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card6')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card6">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">6. Which nut has the highest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question6" value="10" class="mr-2">
+                    <label>Almonds</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question6" value="0" class="mr-2">
+                    <label>Walnuts</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question6" value="0" class="mr-2">
+                    <label>Pistachios</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question6" value="0" class="mr-2">
+                    <label>Cashews</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card7')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card7">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">7. How much water is required to produce 1 kg of chicken?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question7" value="10" class="mr-2">
+                    <label>3,900 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question7" value="0" class="mr-2">
+                    <label>4,300 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question7" value="0" class="mr-2">
+                    <label>4,700 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question7" value="0" class="mr-2">
+                    <label>5,100 liters</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card8')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card8">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">8. Which vegetable has the highest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question8" value="0" class="mr-2">
+                    <label>Broccoli</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question8" value="0" class="mr-2">
+                    <label>Spinach</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question8" value="0" class="mr-2">
+                    <label>Cauliflower</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question8" value="10" class="mr-2">
+                    <label>Asparagus</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card9')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card9">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">9. How much water is required to produce 1 kg of pork?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question9" value="0" class="mr-2">
+                    <label>4,800 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question9" value="0" class="mr-2">
+                    <label>5,600 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question9" value="10" class="mr-2">
+                    <label>6,400 liters</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question9" value="0" class="mr-2">
+                    <label>7,200 liters</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('card10')">Next</button>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="card10">
+        <h1 class="text-2xl font-bold mb-4">Water Footprint Quiz</h1>
+        <div class="mb-6">
+            <p class="text-lg font-semibold mb-4">10. Which beverage has the highest water footprint?</p>
+            <div class="space-y-2">
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question10" value="10" class="mr-2">
+                    <label>Coffee</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question10" value="0" class="mr-2">
+                    <label>Tea</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question10" value="0" class="mr-2">
+                    <label>Wine</label>
+                </div>
+                <div class="border rounded-lg p-2 flex items-center">
+                    <input type="radio" name="question10" value="0" class="mr-2">
+                    <label>Beer</label>
+                </div>
+            </div>
+        </div>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="showNextCard('resultCard')">Submit</button>
+        <p class="text-center text-gray-500 mt-4">10 of 10 questions</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 hidden" id="resultCard">
+        <h1 class="text-2xl font-bold mb-4">Quiz Results</h1>
+        <p class="text-lg font-semibold mb-4">Your total score is: <span id="totalScore"></span></p>
+        <button class="bg-blue-900 text-white py-2 px-4 rounded-lg w-full" onclick="location.reload()">Restart Quiz</button>
+    </div>
+
+    <script>
+        let totalScore = 0;
+
+        function showNextCard(cardId) {
+            const currentCard = document.querySelector('.bg-white:not(.hidden)');
+            const selectedAnswer = currentCard.querySelector('input[type="radio"]:checked');
+            if (selectedAnswer) {
+                totalScore += parseInt(selectedAnswer.value);
+            }
+            document.querySelectorAll('.bg-white').forEach(card => card.classList.add('hidden'));
+            document.getElementById(cardId).classList.remove('hidden');
+            if (cardId === 'resultCard') {
+                document.getElementById('totalScore').innerText = totalScore;
+            }
+        }
+    </script>
+</body>
+</html>

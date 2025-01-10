@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+      /* Sidebar Navigation */
+      body{
+        font-family: 'SUSE', sans-serif;
+      }
+      .sidebar {
+        width: 250px;
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      /* Profile Section at the Top */
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .user-picture {
+       margin-left: -50px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .user-name {
+        margin-left: -50px;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Navigation Menu Items */
+      .nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-item:hover {
+        background-color: #555;
+      }
+
+      .nav-item span {
+        margin-right: 10px;
+        font-size: 24px;
+      }
+
+      .nav-item p {
+        margin:0;
+        font-size: 16px;
+        color: white;
+      }
+      #log-out{
+        margin-top: -25px;
+        margin-left:40px ;
+      }
+     .nav-item a {
+      text-decoration: none;
+     }
+      /* Main Content Area */
+      .main-content {
+        margin-left: 270px;
+        padding: 40px;
+        width: calc(100% - 270px);
+        background-color: #f8f9fa;
+        min-height: 100vh;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Form Styling */
+      #content-display {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: auto;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      /* Additional Styles for Dashboard Content */
+      .dashboard {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .chart-item {
+        background: #f9f9f9;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .filters {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .chart-container {
+        position: relative;
+        height: 100px;
+        width: 300px;
+        margin: 20px auto; /* Center the charts */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Left Side Navigation Bar -->
+      <nav class="sidebar">
+        <div class="profile-section">
+          <img
+            src="WhatsApp Image 2024-09-19 at 22.09.43_d5b944ed.jpg"
+            alt="User Picture"
+            class="user-picture"
+          />
+          <p class="user-name">Admin</p>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item" id="profile-menu">
+            <span class="material-icons-outlined">account_circle</span>
+            <p>Your Profile</p>
+          </li>
+          <!-- <li class="nav-item" id="dashboard-menu">
+            <span class="material-icons-outlined">dashboard</span>
+            <p>Dashboard</p>
+          </li>
+          <li class="nav-item" id="quiz-menu">
+            <span class="material-icons-outlined">quiz</span>
+            <p>Quiz</p>
+          </li>
+          <li class="nav-item" id="leaderboard-menu">
+            <span class="material-icons-outlined">leaderboard</span>
+            <p>Leaderboard</p> -->
+          </li>
+          <li class="nav-item" id="prizes-menu">
+            <span class="material-icons-outlined">emoji_events</span>
+            <p>Your Rewards</p>
+          </li>
+          <li class="nav-item">
+            <a href="index.html"><span class="material-symbols-outlined" style="text-decoration: none;color: #f8f9fa;">logout</span>
+              <p id="log out"><a href="index.html"></a>Log Out</p>
+              </a>
+          </li>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <div id="content-display">
+          <h2>Profile</h2>
+          <p>Welcome to your Profile!</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contentDisplay = document.getElementById("content-display");
+
+        const contentData = {
+          dashboard:
+            "<h2>Dashboard Content</h2><p>Welcome to your dashboard!</p>",
+          quiz: `
+            <h2>Quiz</h2>
+            <div id="quiz-content">
+              <!-- Quiz content will be injected here -->
+            </div>
+          `,
+          leaderboard: `
+  <h2>Leaderboard Content</h2>
+  <p>View the leaderboard <a href="leaderboard.html">here</a>.</p>
+`,
+prizes: `
+  <h2>Prizes Content</h2>
+  <p>Check out the prizes <a href="Rewards.html">here</a>.</p>
+`,  
+          consumption:
+            "<h2>Your Consumption</h2><p>See your consumption details here.</p>",
+          profile: `
+            <h2>Your Profile</h2>
+            <div class="dashboard">
+              <div class="chart-grid">
+                <div class="chart-item">
+                  <h4>Monthly Water Usage Trend</h4>
+                  <canvas id="chartTrend" class="chart-container"></canvas>
+                </div>
+                <div class="chart-item">
+                  <h4>Water Usage by Source</h4>
+                  <canvas id="chartSource" class="chart-container"></canvas>
+                </div>
+                <div class="chart-item">
+                  <h4>Water Usage by Activity</h4>
+                  <canvas id="chartActivity" class="chart-container"></canvas>
+                </div>
+                <div class="chart-item">
+                  <h4>Water Usage by Time of Day</h4>
+                  <canvas id="chartTime" class="chart-container"></canvas>
+                </div>
+              </div>
+              <div class="filters">
+                <label for="date-range">Date Range:</label>
+                <input type="date" id="date-range">
+                <label for="region-select">Region:</label>
+                <select id="region-select">
+                  <option value="urban">Urban</option>
+                  <option value="rural">Rural</option>
+                </select>
+              </div>
+              <div class="stats">
+                <div class="stat-item">
+                  <h3>Your Daily Usage</h3>
+                  <p>7135 liters</p>
+                </div>
+                <div class="stat-item">
+                  <h3>Your Monthly Usage</h3>
+                  <p>59312 liters</p>
+                </div>
+                <div class="stat-item">
+                  <h3>Your Yearly Usage</h3>
+                  <p>351436 liters</p>
+                </div>
+              </div>
+            </div>
+          `,
+        };
+
+        function changeContent(section) {
+          contentDisplay.style.opacity = 0;
+
+          setTimeout(() => {
+            contentDisplay.innerHTML = contentData[section];
+            if (section === "profile") {
+              drawCharts();
+            }
+            contentDisplay.style.opacity = 1;
+          }, 500);
+        }
+
+        document.querySelectorAll(".nav-item").forEach((item) => {
+          item.addEventListener("click", function () {
+            const sectionId = this.id.split("-")[0];
+            changeContent(sectionId);
+          });
+        });
+
+        function drawCharts() {
+          const ctxTrend = document.getElementById('chartTrend').getContext('2d');
+          new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+              datasets: [{
+                label: 'Water Usage (Liters)',
+                data: [3000, 3500, 2000, 4500, 4000, 4200, 2000, 8500, 2300, 2100, 1900, 2400],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                fill: false
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+          
+          const ctxSource = document.getElementById('chartSource').getContext('2d');
+          new Chart(ctxSource, {
+            type: 'doughnut',
+            data: {
+              labels: ['Well', 'River', 'Lake', 'Municipal'],
+              datasets: [{
+                data: [45, 25, 15, 15],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+              }]
+            }
+          });
+
+          const ctxActivity = document.getElementById('chartActivity').getContext('2d');
+          new Chart(ctxActivity, {
+            type: 'bar',
+            data: {
+              labels: ['Shower', 'Cooking', 'Laundry', 'Garden'],
+              datasets: [{
+                label: 'Water Usage (Liters)',
+                data: [300, 150, 200, 250],
+                backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+
+          const ctxTime = document.getElementById('chartTime').getContext('2d');
+          new Chart(ctxTime, {
+            type: 'polarArea',
+            data: {
+              labels: ['Morning', 'Afternoon', 'Evening', 'Night'],
+              datasets: [{
+                data: [250, 150, 100, 80],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+              }]
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
