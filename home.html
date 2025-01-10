@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Footprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: 'SUSE', sans-serif;
+        }
+        .background-image {
+            background-image: url('https://placehold.co/1200x600');
+            background-size: cover;
+            background-position: center;
+        }
+        #map {
+            height: 400px;
+
+        }
+        .btn-water {
+            position: absolute;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background: linear-gradient(45deg, #4a90e2, #50e3c2);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            /* margin-bottom: -40rem; */
+            margin-left: 10rem;
+            top: 25rem;
+        }
+
+        .btn-water:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #50e3c2, #4a90e2);
+        }
+
+        .btn-water:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s ease;
+            z-index: 0;
+        }
+
+        .btn-water:hover:before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .btn-water span {
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="WhatsApp Image 2024-09-19 at 22.09.43_d5b944ed.jpg" class="navbar-logo"/>
+            </div>
+            <div class="navbar-right">
+                <ul class="navbar-menu">
+                    <li class="menu-item">
+                        <a href="#">Entertainment</a>
+                        <ul class="dropdown-content">
+                            <li><a href="Quiz.html">Quiz</a></li>
+                            <li><a href="leaderboard.html">Leaderboard</a></li>
+                            <li><a href="Prizes.html">Rewards</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item dropdown" id="menu-item">
+                        <a href="#">Time for Action</a>
+                        <ul class="dropdown-content" id="dropdown-content">
+                            <li><a href="overview.html">Overview</a></li>
+                            <li><a href="Support.html">Support Us</a></li>
+                            <li><a href="Shop.html">Eco-Friendly Agriculture Products</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <img src="WhatsApp Image 2024-09-19 at 22.09.43_d5b944ed.jpg" class="profile" />
+                        <ul class="dropdown-content" id="dropdownMenu">
+                            <li class="sub-item">
+                                <span class="material-icons-outlined"> grid_view </span>
+                                <p><a href="dash.html">Dashboard</a></p>
+                            </li>
+                            <li class="sub-item">
+                                <span class="material-icons-outlined"> logout </span>
+                                <p class="log"><a href="index.html">Log Out</a></p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto p-4 flex">
+        <div class="w-1/2 text-white text-2xl font-bold">
+        </div>
+        <div class="w-1/2">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([20.5937, 78.9629], 5);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Synthetic data for water footprint
+        var waterFootprintData = [
+            { state: 'Maharashtra', lat: 19.7515, lon: 75.7139, footprint: '5000 million m³' },
+            { state: 'Gujarat', lat: 22.2587, lon: 71.1924, footprint: '3000 million m³' },
+            { state: 'Rajasthan', lat: 27.0238, lon: 74.2179, footprint: '2000 million m³' },
+            { state: 'Karnataka', lat: 15.3173, lon: 75.7139, footprint: '4000 million m³' },
+            { state: 'Tamil Nadu', lat: 11.1271, lon: 78.6569, footprint: '3500 million m³' },
+            { state: 'Uttar Pradesh', lat: 26.8467, lon: 80.9462, footprint: '4500 million m³' },
+            { state: 'West Bengal', lat: 22.9868, lon: 87.8550, footprint: '2500 million m³' },
+            { state: 'Bihar', lat: 25.0961, lon: 85.3131, footprint: '1500 million m³' },
+            { state: 'Odisha', lat: 20.9517, lon: 85.0985, footprint: '2800 million m³' },
+            { state: 'Telangana', lat: 18.1124, lon: 79.0193, footprint: '3200 million m³' },
+            { state: 'Madhya Pradesh', lat: 22.9734, lon: 78.6569, footprint: '3700 million m³' },
+            { state: 'Andhra Pradesh', lat: 15.9129, lon: 79.7400, footprint: '3300 million m³' },
+            { state: 'Punjab', lat: 31.1471, lon: 75.3412, footprint: '2900 million m³' },
+            { state: 'Haryana', lat: 29.0588, lon: 76.0856, footprint: '2700 million m³' },
+            { state: 'Chhattisgarh', lat: 21.2787, lon: 81.8661, footprint: '2400 million m³' },
+            { state: 'Jharkhand', lat: 23.6102, lon: 85.2799, footprint: '2200 million m³' },
+            { state: 'Assam', lat: 26.2006, lon: 92.9376, footprint: '2100 million m³' },
+            { state: 'Kerala', lat: 10.8505, lon: 76.2711, footprint: '2600 million m³' },
+            { state: 'Himachal Pradesh', lat: 31.1048, lon: 77.1734, footprint: '1800 million m³' },
+            { state: 'Uttarakhand', lat: 30.0668, lon: 79.0193, footprint: '1600 million m³' }
+        ];
+
+        // Add markers to the map
+        waterFootprintData.forEach(function(data) {
+            L.marker([data.lat, data.lon]).addTo(map)
+                .bindPopup('<b>' + data.state + '</b><br>Water Footprint: ' + data.footprint);
+        });
+    </script>
+
+<button></button>
+    <a class="btn-water" href="selection.html">
+      <span>
+        Start Your Journey!
+      </span>
+     </a>
+    </div>
+
+</body>
+</html>
+
+</body>
+</html>
