@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed ;
+    background: url(faucet-1684902_1920.jpg);
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .head{
+    position: absolute;
+    top: 200px;
+    left:20px; 
+   color: white;
+   font-size: 50px;
+  }
+  main {
+    flex: 1; 
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4));
+    position: relative;
+    z-index: 1000; /* Ensure the navbar is above other content */
+  
+  }
+  
+  /* Left side of the Navbar */
+  .navbar-left {
+    flex: 1;
+  }
+  
+  /* Logo within Navbar */
+  .navbar-logo {
+    max-width: 120px;
+    mix-blend-mode: color-burn;
+  }
+  
+  /* Right side of the Navbar */
+  .navbar-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Navbar Menu List */
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Individual Menu Items */
+  .menu-item {
+    position: relative;
+  }
+  
+  /* Menu Item Links */
+  .menu-item a {
+    color: black;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    transition: color 0.3s;
+  }
+  
+  /* Dropdown Content */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    list-style: none;
+    padding: 15px 10px;
+    top: 100%;  /* Position dropdown below the triggering element */
+    left: -200px; /* Adjust this value to move the dropdown to the left */
+    min-width: 150px;
+    z-index: 999;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  /* Dropdown List Items */
+  .dropdown-content li a {
+    color: white;
+    padding: 8px 15px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover Effect for Dropdown Links */
+  .dropdown-content li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Navbar Hover Effects */
+  .navbar:hover {
+    opacity: 1;
+  }
+  
+
+  footer {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    background: #3888ff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    height:120px;
+    margin-top: auto;
+  }
+
+  footer .social_icons,
+  footer .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  footer .social_icons li,
+  footer .menu li {
+    list-style: none;
+  }
+
+  footer .social_icons li a {
+    font-size: 2em;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+  }
+
+  footer .social_icons li a:hover {
+    transform: translateY(-10px);
+  }
+
+  footer .menu li a {
+    font-size: 1.2em;
+    color: white;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+    opacity: 0.75;
+  }
+
+  footer .menu li a:hover {
+    opacity: 1;
+  }
+
+  footer .wave {
+    position: absolute;
+    top: -75px;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: url(wave.png);
+    background-size: 1000px 100px;
+  }
+
+  footer .wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 4s linear infinite;
+  }
+
+  footer .wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    bottom: 10px;
+    animation: animateWave_02 4s linear infinite;
+  }
+
+  footer .wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    bottom: 15px;
+    animation: animateWave_03 3s linear infinite;
+  }
+
+  footer .wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    bottom: 20px;
+    animation: animateWave_04 3s linear infinite;
+  }
+
+  @keyframes animateWave {
+    0% {
+      background-position-x: 1000px;
+    }
+    100% {
+      background-position-x: 0px;
+    }
+  }
+
+  @keyframes animateWave_02 {
+    0% {
+      background-position-x: 0px;
+    }
+    100% {
+      background-position-x: 1000px;
+    }
+  }
+
+.btn {
+    height: 3em;
+    width: 12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0px solid black;
+    cursor: pointer;
+  }
+  
+  .wrapper {
+    height: 2em;
+    width: 8em;
+    position: relative;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    font-size: 17px;
+    z-index: 1;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.5s ease;
+  }
+  .btn:hover .text {
+    background: rgba(255, 255, 255, 0.4);
+  }
+/* For index.html */
+.material-icons-outlined {
+    color: #888888;
+    transition: all 0.3s ease-out;
+  }
+  
+  .material-icons-outlined:hover {
+    color: #ff9800;
+    transform: scale(1.25) translateY(-4px);
+    cursor: pointer;
+  }
+  
+  
+  .profile {
+    height: 2rem;
+    width: auto;
+    cursor: pointer;
+  }
+  
+  .sub-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.725rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .sub-item:hover {
+    background-color: rgba(232, 232, 232, 0.4);
+  }
+  
+  .sub-item:hover .material-icons-outlined {
+    color: #ff9800;
+    transform: scale(1.08) translateY(-2px);
+    cursor: pointer;
+  }
+  
+  .sub-item:hover p {
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .sub-item p {
+    font-size: 0.85rem;
+    color: #888888;
+    font-weight: 500;
+    margin: 0.4rem 0;
+    flex: 1;
+  }
+ ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: flex;
+}
+li {
+    list-style-type: none;
+    position: relative;
+    padding: 0.625rem 0 0.5rem;
+  }
+  li ul {
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    align-items: flex-start;
+    transition: all 0.5s ease;
+    width: 20rem;
+    right: -3rem;
+    top: 4.5rem;
+    border-radius: 0.325rem;
+    gap: 0;
+    padding: 1rem 0rem;
+    opacity: 0;
+    box-shadow: 0px 0px 100px rgba(20, 18, 18, 0.25);
+    display: none;
+  }
+  
+.btn2 {
+  position: absolute;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fefefe;
+  text-transform: uppercase;
+  color: #fefefe;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+  transition: 0.3s;
+  top: 350px;
+  left: 90px;
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - -2px);
+  background-color: #212121;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 50px);
+  background-color: #212121;
+  transition: 0.3s ease-out;
+  transform: scaleY(1);
+}
+
+.btn2:hover::before {
+  transform: translateY(-25px);
+  height: 0;
+}
+
+.btn2:hover::after {
+  transform: scaleX(0);
+  transition-delay: 0.15s;
+}
+
+.btn2:hover {
+  border: 2px solid #fefefe;
+}
+
+.btn2 span {
+  position: relative;
+  z-index: 3;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+.mapdiv{
+  position: relative;
+  left: 700px;
+  object-fit: cover;
+margin-top:20px ;
+margin-bottom: 110px;
+filter: drop-shadow(0px 0px 12px black);
+z-index: 1;
+}
+.mapdiv path{
+  fill: #fefefe;
+  stroke: #000;
+  stroke-width: 1px;
+  transition: fill 0.3s;
+}
+.mapdiv :hover{
+  fill: red;
+}
+/* form */
