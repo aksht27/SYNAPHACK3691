@@ -1,0 +1,452 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   JalDhan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   #resultSection, #suggestionModal {
+     display: none;
+   }
+  </style>
+ </head>
+ <body class="bg-green-700 flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl" id="farmerSection">
+   <div class="flex flex-col items-center">
+    <img alt="Logo with a blue background and a footprint with leaves" class="w-24 h-24 mb-4" src="win.jpeg"/>
+    <h1 class="text-2xl font-bold mb-4">
+        KrishiSetu
+    </h1>
+    <p class="text-center mb-6">
+     Farmer Section
+    </p>
+    <input class="w-full mb-4 p-2 border rounded-lg" id="itemInput" placeholder="Enter an item" readonly="" type="text"/>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="productSelect" onchange="document.getElementById('itemInput').value = this.value;">
+     <option value="">
+      Select a product
+     </option>
+     <option value="Wheat">
+      Wheat
+     </option>
+     <option value="Rice">
+      Rice
+     </option>
+     <option value="Corn">
+      Corn
+     </option>
+     <option value="Soybeans">
+      Soybeans
+     </option>
+     <option value="Potatoes">
+      Potatoes
+     </option>
+     <option value="Tomatoes">
+      Tomatoes
+     </option>
+     <option value="Apples">
+      Apples
+     </option>
+     <option value="Oranges">
+      Oranges
+     </option>
+     <option value="Bananas">
+      Bananas
+     </option>
+     <option value="Grapes">
+      Grapes
+     </option>
+     <option value="Strawberries">
+      Strawberries
+     </option>
+     <option value="Lettuce">
+      Lettuce
+     </option>
+     <option value="Carrots">
+      Carrots
+     </option>
+     <option value="Onions">
+      Onions
+     </option>
+     <option value="Peppers">
+      Peppers
+     </option>
+    </select>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="climateSelect">
+     <option value="">
+      Select Climate
+     </option>
+     <option value="Tropical">
+      Tropical
+     </option>
+     <option value="Dry">
+      Dry
+     </option>
+     <option value="Temperate">
+      Temperate
+     </option>
+     <option value="Continental">
+      Continental
+     </option>
+     <option value="Polar">
+      Polar
+     </option>
+    </select>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="stateSelect">
+     <option value="">
+      Select Indian State
+     </option>
+     <option value="Andhra Pradesh">
+      Andhra Pradesh
+     </option>
+     <option value="Arunachal Pradesh">
+      Arunachal Pradesh
+     </option>
+     <option value="Assam">
+      Assam
+     </option>
+     <option value="Bihar">
+      Bihar
+     </option>
+     <option value="Chhattisgarh">
+      Chhattisgarh
+     </option>
+     <option value="Goa">
+      Goa
+     </option>
+     <option value="Gujarat">
+      Gujarat
+     </option>
+     <option value="Haryana">
+      Haryana
+     </option>
+     <option value="Himachal Pradesh">
+      Himachal Pradesh
+     </option>
+     <option value="Jharkhand">
+      Jharkhand
+     </option>
+     <option value="Karnataka">
+      Karnataka
+     </option>
+     <option value="Kerala">
+      Kerala
+     </option>
+     <option value="Madhya Pradesh">
+      Madhya Pradesh
+     </option>
+     <option value="Maharashtra">
+      Maharashtra
+     </option>
+     <option value="Manipur">
+      Manipur
+     </option>
+     <option value="Meghalaya">
+      Meghalaya
+     </option>
+     <option value="Mizoram">
+      Mizoram
+     </option>
+     <option value="Nagaland">
+      Nagaland
+     </option>
+     <option value="Odisha">
+      Odisha
+     </option>
+     <option value="Punjab">
+      Punjab
+     </option>
+     <option value="Rajasthan">
+      Rajasthan
+     </option>
+     <option value="Sikkim">
+      Sikkim
+     </option>
+     <option value="Tamil Nadu">
+      Tamil Nadu
+     </option>
+     <option value="Telangana">
+      Telangana
+     </option>
+     <option value="Tripura">
+      Tripura
+     </option>
+     <option value="Uttar Pradesh">
+      Uttar Pradesh
+     </option>
+     <option value="Uttarakhand">
+      Uttarakhand
+     </option>
+     <option value="West Bengal">
+      West Bengal
+     </option>
+    </select>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="landAreaSelect">
+     <option value="">
+      Select Land Area (in acres)
+     </option>
+     <option value="1">
+      1 acre
+     </option>
+     <option value="2">
+      2 acres
+     </option>
+     <option value="3">
+      3 acres
+     </option>
+     <option value="4">
+      4 acres
+     </option>
+     <option value="5">
+      5 acres
+     </option>
+     <option value="10">
+      10 acres
+     </option>
+     <option value="20">
+      20 acres
+     </option>
+     <option value="50">
+      50 acres
+     </option>
+     <option value="100">
+      100 acres
+     </option>
+    </select>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="durationSelect">
+     <option value="">
+      Select Duration (in days)
+     </option>
+     <option value="30">
+      30 days
+     </option>
+     <option value="60">
+      60 days
+     </option>
+     <option value="90">
+      90 days
+     </option>
+     <option value="120">
+      120 days
+     </option>
+     <option value="150">
+      150 days
+     </option>
+     <option value="180">
+      180 days
+     </option>
+    </select>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="monthSelect">
+     <option value="">
+      Select Month
+     </option>
+     <option value="January">
+      January
+     </option>
+     <option value="February">
+      February
+     </option>
+     <option value="March">
+      March
+     </option>
+     <option value="April">
+      April
+     </option>
+     <option value="May">
+      May
+     </option>
+     <option value="June">
+      June
+     </option>
+     <option value="July">
+      July
+     </option>
+     <option value="August">
+      August
+     </option>
+     <option value="September">
+      September
+     </option>
+     <option value="October">
+      October
+     </option>
+     <option value="November">
+      November
+     </option>
+     <option value="December">
+      December
+     </option>
+    </select>
+    <div class="flex space-x-4">
+     <button class="bg-blue-500 text-white px-4 py-2 rounded-lg" onclick="validateAndCheckSuitability()">
+      Check Suitability
+     </button>
+     
+    </div>
+   </div>
+  </div>
+  <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl mt-8" id="resultSection">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">
+     Suitability Result
+    </h2>
+    <button class="text-blue-500" onclick="showFarmerSection()">
+     <i class="fas fa-arrow-left">
+     </i>
+     Back
+    </button>
+   </div>
+   <p class="text-center mb-4" id="suitabilityResult">
+   </p>
+   <table class="w-full border-collapse border border-gray-300 mb-4">
+    <thead>
+     <tr>
+      <th class="border border-gray-300 p-2">
+       Field
+      </th>
+      <th class="border border-gray-300 p-2">
+       Value
+      </th>
+      <th class="border border-gray-300 p-2">
+       Suitable
+      </th>
+     </tr>
+    </thead>
+    <tbody id="resultTableBody">
+    </tbody>
+   </table>
+   <div class="flex justify-center">
+    <button class="bg-green-500 text-white px-2 py-1 rounded-lg text-sm" onclick="showSuggestion()">
+     Get Suggestions
+    </button>
+   </div>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" id="suggestionModal">
+   <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-xs">
+    <div class="flex justify-between items-center mb-4">
+     <h2 class="text-xl font-bold">
+      Suggested Crop
+     </h2>
+     <button class="text-red-500" onclick="closeSuggestion()">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <img alt="Suggested crop image" class="w-full rounded-lg mb-4" src="win.jpeg"/>
+    <p class="mb-4 text-sm" id="suggestionText">
+    </p>
+    <div class="flex justify-between">
+     <button class="bg-gray-500 text-white px-4 py-2 rounded-lg text-sm" onclick="closeSuggestion()">
+      Close
+     </button>
+    </div>
+   </div>
+  </div>
+  <script>
+   function validateAndCheckSuitability() {
+     const product = document.getElementById('itemInput').value;
+     const climate = document.getElementById('climateSelect').value;
+     const state = document.getElementById('stateSelect').value;
+     const landArea = document.getElementById('landAreaSelect').value;
+     const duration = document.getElementById('durationSelect').value;
+     const month = document.getElementById('monthSelect').value;
+
+     if (!product || !climate || !state || !landArea || !duration || !month) {
+       alert('Please fill in all fields.');
+       return;
+     }
+
+     // Add your suitability check logic here
+     const isSuitable = checkSuitability(product, climate, state, landArea, duration, month);
+     const suitabilityResult = document.getElementById('suitabilityResult');
+     if (isSuitable) {
+       suitabilityResult.innerText = `The crop ${product} is suitable for the given conditions.`;
+     } else {
+       suitabilityResult.innerText = `The crop ${product} is not suitable for the given conditions. Consider growing another crop.`;
+     }
+
+     const resultTableBody = document.getElementById('resultTableBody');
+     resultTableBody.innerHTML = `
+       <tr>
+         <td class="border border-gray-300 p-2">Product</td>
+         <td class="border border-gray-300 p-2">${product}</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+       <tr>
+         <td class="border border-gray-300 p-2">Climate</td>
+         <td class="border border-gray-300 p-2">${climate}</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+       <tr>
+         <td class="border border-gray-300 p-2">State</td>
+         <td class="border border-gray-300 p-2">${state}</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+       <tr>
+         <td class="border border-gray-300 p-2">Land Area</td>
+         <td class="border border-gray-300 p-2">${landArea} acres</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+       <tr>
+         <td class="border border-gray-300 p-2">Duration</td>
+         <td class="border border-gray-300 p-2">${duration} days</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+       <tr>
+         <td class="border border-gray-300 p-2">Month</td>
+         <td class="border border-gray-300 p-2">${month}</td>
+         <td class="border border-gray-300 p-2">${isSuitable ? 'Yes' : 'No'}</td>
+       </tr>
+     `;
+
+     showResultSection();
+   }
+
+   function checkSuitability(product, climate, state, landArea, duration, month) {
+     // Synthetic data for suitability check
+     const suitabilityData = {
+       Wheat: { Tropical: true, Dry: true, Temperate: true, Continental: false, Polar: false },
+       Rice: { Tropical: true, Dry: false, Temperate: true, Continental: false, Polar: false },
+       Corn: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Soybeans: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Potatoes: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: true },
+       Tomatoes: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Apples: { Tropical: false, Dry: false, Temperate: true, Continental: true, Polar: false },
+       Oranges: { Tropical: true, Dry: true, Temperate: true, Continental: false, Polar: false },
+       Bananas: { Tropical: true, Dry: true, Temperate: false, Continental: false, Polar: false },
+       Grapes: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Strawberries: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Lettuce: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false },
+       Carrots: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: true },
+       Onions: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: true },
+       Peppers: { Tropical: true, Dry: true, Temperate: true, Continental: true, Polar: false }
+     };
+
+     return suitabilityData[product][climate];
+   }
+
+   function showResultSection() {
+     document.getElementById('farmerSection').style.display = 'none';
+     document.getElementById('resultSection').style.display = 'block';
+   }
+
+   function showFarmerSection() {
+     document.getElementById('resultSection').style.display = 'none';
+     document.getElementById('farmerSection').style.display = 'block';
+   }
+
+   function showSuggestion() {
+     const suggestionText = document.getElementById('suggestionText');
+     suggestionText.innerText = "Based on your inputs, we suggest growing 'Corn'. It is more suitable for your conditions and is currently in high demand.";
+     document.getElementById('suggestionModal').style.display = 'flex';
+   }
+
+   function closeSuggestion() {
+     document.getElementById('suggestionModal').style.display = 'none';
+   }
+  </script>
+ </body>
+</html>

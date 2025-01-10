@@ -1,0 +1,128 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   WaterCertify
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @keyframes marquee {
+    0% {
+     transform: translateX(100%);
+    }
+    100% {
+     transform: translateX(-100%);
+    }
+   }
+   .marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+   }
+   .marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+   }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white font-sans">
+  <div class="flex flex-col min-h-screen">
+   <!-- Main Content -->
+   <div class="flex-1">
+    <!-- Header -->
+    <div class="flex justify-between items-center p-4 bg-gray-800">
+     <div class="flex items-center space-x-4">
+      <i class="fas fa-bars text-white text-2xl">
+      </i>
+      <img alt="Logo of WaterCertify, a water droplet with a checkmark inside" class="w-10 h-10" src="win.jpeg"/>
+      <h1 class="text-3xl font-bold">
+        KrishiSetu
+      </h1>
+     </div>
+     <div class="flex items-center space-x-4">
+      <img alt="MetaMask Logo, a stylized fox head" class="w-10 h-10" src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg"/>
+      <div class="bg-purple-700 px-4 py-2 rounded-lg">
+       <span>
+        addr1q...whpg
+       </span>
+      </div>
+     </div>
+    </div>
+    <!-- Marquee Section -->
+    <div class="bg-purple-800 py-2 marquee">
+     <span>
+      Certificate issued to: John Doe | MetaMask ID: addr1q...abcd | Certificate issued to: Jane Smith | MetaMask ID: addr1q...efgh | Certificate issued to: Acme Corp | MetaMask ID: addr1q...ijkl | Certificate issued to: XYZ Ltd | MetaMask ID: addr1q...mnop | Certificate issued to: John Doe | MetaMask ID: addr1q...abcd | Certificate issued to: Jane Smith | MetaMask ID: addr1q...efgh | Certificate issued to: Acme Corp | MetaMask ID: addr1q...ijkl | Certificate issued to: XYZ Ltd | MetaMask ID: addr1q...mnop
+
+     </span>
+    </div>
+    <!-- Issue Certificate Section -->
+    <div class="p-8">
+     <h2 class="text-2xl font-bold text-center mb-4">
+      Issue Water Footprint Certificate
+     </h2>
+     <div class="flex justify-center">
+      <!-- Issue Certificate Form -->
+      <div class="bg-purple-800 p-4 rounded-lg w-full md:w-1/2">
+       <h3 class="text-xl font-bold mb-2">
+        Enter Certificate Details
+       </h3>
+       <form class="space-y-4">
+        <div>
+         <label class="block text-sm font-medium mb-1" for="entity-type">
+          Entity Type
+         </label>
+         <select class="w-full px-3 py-2 bg-gray-700 rounded-lg" id="entity-type" name="entity-type">
+          <option value="government">
+           Government
+          </option>
+          <option value="company">
+           Company
+          </option>
+         </select>
+        </div>
+        <div>
+         <label class="block text-sm font-medium mb-1" for="organization-name">
+          Organization Name
+         </label>
+         <input class="w-full px-3 py-2 bg-gray-700 rounded-lg" id="organization-name" name="organization-name" type="text"/>
+        </div>
+        <div>
+         <label class="block text-sm font-medium mb-1" for="product-name">
+          Agriculture Product Name
+         </label>
+         <input class="w-full px-3 py-2 bg-gray-700 rounded-lg" id="product-name" name="product-name" type="text"/>
+        </div>
+        <div>
+         <label class="block text-sm font-medium mb-1" for="issue-date">
+          Issue Date
+         </label>
+         <input class="w-full px-3 py-2 bg-gray-700 rounded-lg" id="issue-date" name="issue-date" type="date"/>
+        </div>
+        <div>
+         <label class="block text-sm font-medium mb-1" for="certificate-file">
+          Upload Document
+         </label>
+         <div class="border-2 border-dashed border-gray-500 p-8 flex justify-center items-center cursor-pointer" onclick="document.getElementById('certificate-file').click()">
+          <i class="fas fa-file-upload text-gray-500 text-4xl">
+          </i>
+          <span class="ml-2">
+           Select file
+          </span>
+         </div>
+         <input class="hidden" id="certificate-file" name="certificate-file" type="file"/>
+        </div>
+        <button class="bg-blue-600 px-4 py-2 rounded-lg w-full text-center block" type="submit">
+         Upload Document
+        </button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

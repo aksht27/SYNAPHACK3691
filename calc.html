@@ -1,0 +1,390 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   JalDhan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  </script>
+  <style>
+   #cameraModal, #resultSection, #recommendationModal {
+     display: none;
+   }
+  </style>
+ </head>
+ <body class="bg-blue-700 flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl" id="consumerSection">
+   <div class="flex flex-col items-center">
+    <img alt="Logo with a blue background and a footprint with leaves" class="w-24 h-24 mb-4" src="win.jpeg"/>
+    <h1 class="text-2xl font-bold mb-4">
+        KrishiSetu
+    </h1>
+    <p class="text-center mb-6">
+     Consumer Section
+    </p>
+    <div class="flex space-x-4 mb-6">
+     <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center" onclick="openCamera()">
+      <i class="fas fa-camera mr-2">
+      </i>
+      Camera
+     </button>
+     <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg flex items-center" onclick="document.getElementById('galleryInput').click()">
+      <i class="fas fa-image mr-2">
+      </i>
+      Gallery
+     </button>
+     <input accept="image/*" class="hidden" id="galleryInput" onchange="handleImageUpload(event)" type="file"/>
+     <div class="text-gray-700 ml-4" id="imageDetails">
+     </div>
+    </div>
+    <input class="w-full mb-4 p-2 border rounded-lg" id="itemInput" placeholder="Enter an item" readonly="" type="text"/>
+    <select class="w-full mb-4 p-2 border rounded-lg" id="productSelect" onchange="document.getElementById('itemInput').value = this.value;">
+     <option value="">
+      Select a product
+     </option>
+     <option value="Wheat">
+      Wheat
+     </option>
+     <option value="Rice">
+      Rice
+     </option>
+     <option value="Corn">
+      Corn
+     </option>
+     <option value="Soybeans">
+      Soybeans
+     </option>
+     <option value="Potatoes">
+      Potatoes
+     </option>
+     <option value="Tomatoes">
+      Tomatoes
+     </option>
+     <option value="Apples">
+      Apples
+     </option>
+     <option value="Oranges">
+      Oranges
+     </option>
+     <option value="Bananas">
+      Bananas
+     </option>
+     <option value="Grapes">
+      Grapes
+     </option>
+     <option value="Strawberries">
+      Strawberries
+     </option>
+     <option value="Lettuce">
+      Lettuce
+     </option>
+     <option value="Carrots">
+      Carrots
+     </option>
+     <option value="Onions">
+      Onions
+     </option>
+     <option value="Peppers">
+      Peppers
+     </option>
+    </select>
+    <div class="flex space-x-4 mb-6">
+     <select class="w-1/2 p-2 border rounded-lg" id="quantityInput">
+      <option value="">
+       Select quantity
+      </option>
+      <option value="0.5">
+       0.5
+      </option>
+      <option value="1">
+       1
+      </option>
+      <option value="2">
+       2
+      </option>
+      <option value="3">
+       3
+      </option>
+      <option value="4">
+       4
+      </option>
+      <option value="5">
+       5
+      </option>
+      <option value="6">
+       6
+      </option>
+      <option value="7">
+       7
+      </option>
+      <option value="8">
+       8
+      </option>
+      <option value="9">
+       9
+      </option>
+      <option value="10">
+       10
+      </option>
+     </select>
+     <select class="w-1/2 p-2 border rounded-lg" id="unitSelect">
+      <option value="">
+       Select unit
+      </option>
+      <option value="Kilograms">
+       Kilograms
+      </option>
+      <option value="Grams">
+       Grams
+      </option>
+      <option value="Liters">
+       Liters
+      </option>
+      <option value="Milliliters">
+       Milliliters
+      </option>
+      <option value="Pounds">
+       Pounds
+      </option>
+      <option value="Ounces">
+       Ounces
+      </option>
+     </select>
+    </div>
+    <div class="flex space-x-4">
+     <button class="bg-blue-500 text-white px-4 py-2 rounded-lg" onclick="validateAndShowResult()">
+      Calculate Water Footprint
+     </button>
+     
+    </div>
+   </div>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" id="cameraModal">
+   <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-md">
+    <div class="flex justify-between items-center mb-4">
+     <h2 class="text-xl font-bold">
+      Camera
+     </h2>
+     <button class="text-red-500" onclick="closeCamera()">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <video autoplay="" class="w-full rounded-lg" id="videoElement">
+    </video>
+   </div>
+  </div>
+  <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-2xl mt-8" id="resultSection">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">
+     Water Footprint Result
+    </h2>
+    <button class="text-blue-500" onclick="showConsumerSection()">
+     <i class="fas fa-arrow-left">
+     </i>
+     Back
+    </button>
+   </div>
+   <p class="text-center mb-4" id="totalWaterFootprint">
+   </p>
+   <div class="mb-4">
+    <canvas id="pieChart">
+    </canvas>
+   </div>
+   <table class="w-full border-collapse border border-gray-300 mb-4">
+    <thead>
+     <tr>
+      <th class="border border-gray-300 p-2">
+       Product
+      </th>
+      <th class="border border-gray-300 p-2">
+       Quantity
+      </th>
+      <th class="border border-gray-300 p-2">
+       Unit
+      </th>
+      <th class="border border-gray-300 p-2">
+       Grey Water
+      </th>
+      <th class="border border-gray-300 p-2">
+       Blue Water
+      </th>
+      <th class="border border-gray-300 p-2">
+       Green Water
+      </th>
+     </tr>
+    </thead>
+    <tbody id="resultTableBody">
+    </tbody>
+   </table>
+   <div class="flex justify-center">
+    <button class="bg-green-500 text-white px-2 py-1 rounded-lg text-sm" onclick="showRecommendation()">
+     Get Recommendations
+    </button>
+   </div>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" id="recommendationModal">
+   <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-xs">
+    <div class="flex justify-between items-center mb-4">
+     <h2 class="text-xl font-bold">
+      Recommended Product
+     </h2>
+     <button class="text-red-500" onclick="closeRecommendation()">
+      <i class="fas fa-times">
+      </i>
+     </button>
+    </div>
+    <img alt="Recommended product image" class="w-full rounded-lg mb-4" src="win.jpeg"/>
+    <p class="mb-4 text-sm">
+     This is a highly recommended product for you based on your water footprint calculation.
+    </p>
+    <div class="flex justify-between">
+     <button class="bg-gray-500 text-white px-4 py-2 rounded-lg text-sm" onclick="closeRecommendation()">
+      Not Now
+     </button>
+     <a class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm" href="Shop.html" target="_blank">
+      Buy Now
+     </a>
+    </div>
+   </div>
+  </div>
+  <script>
+   function openCamera() {
+     document.getElementById('cameraModal').style.display = 'flex';
+     startCamera();
+   }
+
+   function closeCamera() {
+     document.getElementById('cameraModal').style.display = 'none';
+     stopCamera();
+   }
+
+   function startCamera() {
+     const video = document.getElementById('videoElement');
+     if (navigator.mediaDevices.getUserMedia) {
+       navigator.mediaDevices.getUserMedia({ video: true })
+         .then(function (stream) {
+           video.srcObject = stream;
+         })
+         .catch(function (err0r) {
+           console.log("Something went wrong!");
+         });
+     }
+   }
+
+   function stopCamera() {
+     const video = document.getElementById('videoElement');
+     const stream = video.srcObject;
+     const tracks = stream.getTracks();
+
+     tracks.forEach(function (track) {
+       track.stop();
+     });
+
+     video.srcObject = null;
+   }
+
+   function handleImageUpload(event) {
+     const file = event.target.files[0];
+     if (file) {
+       const reader = new FileReader();
+       reader.onload = function(e) {
+         const img = document.createElement('img');
+         img.src = e.target.result;
+         img.className = 'w-full rounded-lg mb-4';
+         document.getElementById('imageDetails').innerText = `Uploaded Image: ${file.name}, Size: ${Math.round(file.size / 1024)} KB`;
+       };
+       reader.readAsDataURL(file);
+     }
+   }
+
+   function validateAndShowResult() {
+     const itemInput = document.getElementById('itemInput').value;
+     const quantityInput = document.getElementById('quantityInput').value;
+     const unitSelect = document.getElementById('unitSelect').value;
+
+     if (!itemInput || !quantityInput || !unitSelect) {
+       alert('Please fill in all fields.');
+       return;
+     }
+
+     showResult(itemInput, quantityInput, unitSelect);
+   }
+
+   function showResult(product, quantity, unit) {
+     const waterFootprintData = {
+       Wheat: { grey: 200, blue: 150, green: 150 },
+       Rice: { grey: 400, blue: 300, green: 300 },
+       Corn: { grey: 100, blue: 80, green: 70 },
+       Soybeans: { grey: 150, blue: 120, green: 110 },
+       Potatoes: { grey: 90, blue: 70, green: 60 },
+       Tomatoes: { grey: 80, blue: 60, green: 50 },
+       Apples: { grey: 120, blue: 100, green: 90 },
+       Oranges: { grey: 130, blue: 110, green: 100 },
+       Bananas: { grey: 140, blue: 120, green: 110 },
+       Grapes: { grey: 110, blue: 90, green: 80 },
+       Strawberries: { grey: 100, blue: 80, green: 70 },
+       Lettuce: { grey: 70, blue: 50, green: 40 },
+       Carrots: { grey: 60, blue: 40, green: 30 },
+       Onions: { grey: 50, blue: 30, green: 20 },
+       Peppers: { grey: 90, blue: 70, green: 60 }
+     };
+
+     const greyWater = waterFootprintData[product].grey * quantity;
+     const blueWater = waterFootprintData[product].blue * quantity;
+     const greenWater = waterFootprintData[product].green * quantity;
+     const totalWater = greyWater + blueWater + greenWater;
+
+     document.getElementById('totalWaterFootprint').innerText = `Total Water Footprint: ${totalWater} liters`;
+
+     const resultTableBody = document.getElementById('resultTableBody');
+     resultTableBody.innerHTML = `
+       <tr>
+         <td class="border border-gray-300 p-2">${product}</td>
+         <td class="border border-gray-300 p-2">${quantity}</td>
+         <td class="border border-gray-300 p-2">${unit}</td>
+         <td class="border border-gray-300 p-2">${greyWater} liters</td>
+         <td class="border border-gray-300 p-2">${blueWater} liters</td>
+         <td class="border border-gray-300 p-2">${greenWater} liters</td>
+       </tr>
+     `;
+
+     document.getElementById('consumerSection').style.display = 'none';
+     document.getElementById('resultSection').style.display = 'block';
+
+     const ctx = document.getElementById('pieChart').getContext('2d');
+     new Chart(ctx, {
+       type: 'pie',
+       data: {
+         labels: ['Grey Water', 'Blue Water', 'Green Water'],
+         datasets: [{
+           data: [greyWater, blueWater, greenWater],
+           backgroundColor: ['#B0BEC5', '#42A5F5', '#66BB6A'],
+         }]
+       },
+       options: {
+         responsive: true,
+         maintainAspectRatio: false,
+       }
+     });
+   }
+
+   function showConsumerSection() {
+     document.getElementById('resultSection').style.display = 'none';
+     document.getElementById('consumerSection').style.display = 'block';
+   }
+
+   function showRecommendation() {
+     document.getElementById('recommendationModal').style.display = 'flex';
+   }
+
+   function closeRecommendation() {
+     document.getElementById('recommendationModal').style.display = 'none';
+   }
+  </script>
+ </body>
+</html>
