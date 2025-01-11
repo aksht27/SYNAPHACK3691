@@ -3,8 +3,8 @@
 # Overview:
 **KrishiSetu is a digital platform designed to promote sustainable farming and eco-conscious consumption through AI and Web3 technologies. The platform provides tools for farmers to make informed crop decisions based on water stress levels, rainfall, and market stability. Consumers can access water footprint data of agricultural products and receive recommendations for sustainable alternatives. Additionally, the platform features a decentralized certification system using NFTs to ensure transparency.**
 # Project Link:
-**Check out the live demo of the project here: https://aksht27.github.io/SYNAPHACK3691/**
-**Username: <ins> Random Anything</ins>**
+**Check out the live demo of the project here: https://aksht27.github.io/SYNAPHACK3691/** <br>
+**Username: <ins> Random Anything</ins>** <br>
 **Password: <ins> Random Anything</ins>**
 # Features:
 ***1)Water Footprint Calculation<br>***
