@@ -2,7 +2,14 @@
 ***Transforming Agriculture with AI and Web3***
 # Overview:
 **KrishiSetu is a digital platform designed to promote sustainable farming and eco-conscious consumption through AI and Web3 technologies. The platform provides tools for farmers to make informed crop decisions based on water stress levels, rainfall, and market stability. Consumers can access water footprint data of agricultural products and receive recommendations for sustainable alternatives. Additionally, the platform features a decentralized certification system using NFTs to ensure transparency.**
-# Project Link:
+                                                                                             #  Start Your Journey<br>
+        |--------------------------------------------------------------------------------------------- |------------------------------------------------------------------------------------------------|<br>
+        |                                                                                              |                                                                                                |<br>
+        |                                                                                              |                                                                                                |<br>
+        |                                                                                              |                                                                                                |<br>
+   **Farmer**                                                                                     **CONSUMER**                                                                           **NFT's Certification<br>**
+     <br>
+# Project Link: 
 **Check out the live demo of the project here: https://aksht27.github.io/SYNAPHACK3691/** <br>
 **Username: <ins> Random Anything</ins>** <br>
 **Password: <ins> Random Anything</ins>**
@@ -15,4 +22,4 @@
 ***6)Quiz & Dashboard – Insights and weekly trend analytics<br>***
 ***7)Multi-Language Support<br>***
 
-rgb(9, 105, 218)
+
