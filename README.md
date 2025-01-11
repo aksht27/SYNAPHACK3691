@@ -15,4 +15,4 @@
 ***6)Quiz & Dashboard – Insights and weekly trend analytics<br>***
 ***7)Multi-Language Support<br>***
 
-
+rgb(9, 105, 218)
