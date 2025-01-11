@@ -2,6 +2,8 @@
 ***Transforming Agriculture with AI and Web3***
 # Overview:
 **KrishiSetu is a digital platform designed to promote sustainable farming and eco-conscious consumption through AI and Web3 technologies. The platform provides tools for farmers to make informed crop decisions based on water stress levels, rainfall, and market stability. Consumers can access water footprint data of agricultural products and receive recommendations for sustainable alternatives. Additionally, the platform features a decentralized certification system using NFTs to ensure transparency.**<br>
+
+# Process Flow
 .......................Start Your Journey.......................<br>
         |----------------------|--------------------------|<br>
         |----------------------|--------------------------|<br>
